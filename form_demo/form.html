@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Đăng ký thông tin</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    height:100vh;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family: "Segoe UI", sans-serif;
+    animation: bgMove 6s infinite alternate ease-in-out;
+}
+
+@keyframes bgMove{
+    0%{ background:linear-gradient(135deg,#667eea,#764ba2); }
+    100%{ background:linear-gradient(135deg,#06beb6,#48b1bf); }
+}
+
+.card{
+    width: 460px;
+    background:rgba(61, 246, 5, 0.15);
+    backdrop-filter:blur(16px);
+    border-radius:20px;
+    padding:28px 35px;
+    box-shadow:0 28px 60px rgba(0,0,0,0.3);
+    color:white;
+    animation: slideUp .7s ease;
+}
+
+@keyframes slideUp{
+    from{ transform:translateY(50px); opacity:0;}
+    to{ transform:translateY(0); opacity:1;}
+}
+
+h2{
+    text-align:center;
+    margin-top:0;
+    letter-spacing:1px;
+}
+
+.field{
+    margin-bottom:18px;
+}
+
+.label{
+    margin-bottom:6px;
+    font-weight:600;
+}
+
+input, textarea{
+    width:100%;
+    padding:11px 14px;
+    border-radius:12px;
+    border:none;
+    outline:none;
+    font-size:15px;
+}
+
+input:focus, textarea:focus{
+    box-shadow:0 0 0 2px #22c55e inset;
+}
+
+.radio-group,
+.check-group{
+    padding:10px 10px;
+    background:rgba(255,255,255,0.15);
+    border-radius:14px;
+}
+
+button{
+    width:100%;
+    padding:13px;
+    border-radius:14px;
+    border:none;
+    background:#22c55e;
+    font-size:17px;
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+    animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+    0%{ transform:scale(1); }
+    50%{ transform:scale(1.03); box-shadow:0 0 18px rgba(255,255,255,0.6); }
+    100%{ transform:scale(1); }
+}
+
+button:hover{
+    background:#16a34a;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h2><i class="fa-solid fa-pen-to-square"></i> ĐĂNG KÝ THÔNG TIN</h2>
+
+<form action="result.php" method="post">
+
+<div class="field">
+    <div class="label">Họ tên</div>
+    <input type="text" name="full_name">
+</div>
+
+<div class="field">
+    <div class="label">Email</div>
+    <input type="text" name="email">
+</div>
+
+<div class="field">
+    <div class="label">Tuổi</div>
+    <input type="number" name="age">
+</div>
+
+<div class="field">
+    <div class="label">Giới tính</div>
+    <div class="radio-group">
+        <label><input type="radio" name="gender" value="Nam"> Nam</label> &nbsp;&nbsp;
+        <label><input type="radio" name="gender" value="Nữ"> Nữ</label>
+    </div>
+</div>
+
+<div class="field">
+    <div class="label">Sở thích</div>
+    <div class="check-group">
+        <label><input type="checkbox" name="hobbies[]" value="Game"> Game</label><br>
+        <label><input type="checkbox" name="hobbies[]" value="Nghe nhạc"> Nghe nhạc</label><br>
+        <label><input type="checkbox" name="hobbies[]" value="Đọc sách"> Đọc sách</label><br>
+        <label><input type="checkbox" name="hobbies[]" value="Du lịch"> Du lịch</label>
+    </div>
+</div>
+
+<div class="field">
+    <div class="label">Ghi chú</div>
+    <textarea name="note" rows="3"></textarea>
+</div>
+
+<button type="submit">
+    <i class="fa-solid fa-paper-plane"></i> Gửi thông tin
+</button>
+
+</form>
+</div>
+
+</body>
+</html>
